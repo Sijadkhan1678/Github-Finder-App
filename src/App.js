@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Navbar from './components/layout/Navbar';
 import './style.css';
 
 class App extends Component {
@@ -13,7 +13,8 @@ class App extends Component {
     return (
       <div>
         <h1>Hello StackBlitz!</h1>
-        <p>this.state</p>
+        <p>this.state.title</p>
+        <Navbar title="Github FInder" />
       </div>
     );
   }
