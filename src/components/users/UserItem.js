@@ -13,9 +13,10 @@ class UserItem extends Component {
   }
   render() {
     return (
-      <div className='text-center '>
+      <div className='text-center card'>
         <img src={this.state.avatar_url} alt="" className='round-img' style={{width:100}}/>
-        <h3>{this.state.login}</h3>
+        <h3 className='my-1'>{this.state.login}</h3>
+        <a className='btn bg-primary' href={this.state.html_url}>Profile</a>
       </div>
     );
   }

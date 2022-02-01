@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
-import UserItem from './components/UserItem';
-import './style.css';
+import UserItem from './components/users/UserItem';
+import './app.css';
 
 class App extends Component {
 
