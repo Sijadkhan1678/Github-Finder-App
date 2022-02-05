@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 
-
+import propTypes from 'prop-types'
 class UserItem extends Component {
   
+    static propTpes={
+      user: propTypes.object.isRequired,
+    }
     
-    state = {
-      id: '1',
-      login: 'mojombo',
-      avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
-      html_url: 'https://github.com/mojombo'
-    };
   render() {
-    const {login,avatar_url,html_url}=this.state;
+    const {login,avatar_url,html_url}=this.props.user;
     return (
       <div className='text-center card'>
         <img src={avatar_url} alt="" className='round-img' style={{width:100}}/>
