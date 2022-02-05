@@ -3,6 +3,7 @@ import UserItem from './UserItem';
 import propTypes from 'prop-types'
 
 class Users extends Component {
+  const Users=props
   static propTypes={
     users: propTypes.array.isRequired
   }
@@ -17,6 +18,11 @@ class Users extends Component {
     );
   }
 }
+
+static propTypes={
+  users: propTypes.array.isRequired
+}
+
 
 const userStyle = {
   display: 'grid',
