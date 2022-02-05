@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 
 
   const Navbar= props =>{
+    
   
     return (
       <div className="navbar bg-primary">
