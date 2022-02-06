@@ -7,9 +7,10 @@ import propTypes from 'prop-types';
 // following condition  to check alert object is null or not 
    return(   alert!=null &&(
               <div className={`alert alert-${alert.type}`}>
+                 <i className="fas fa-info-circle"/>
                  {alert.msg}
-            <i className="fas fa-info-circle"></i> { alert.msg }
-                
+           
+             <i className='fas fa-times'/>               
            </div>))
 
 };
@@ -17,4 +18,5 @@ import propTypes from 'prop-types';
 Alert.propTypes={
         alert: propTypes.object.isRequired,
 }
+
 export default Alert;

@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
+import propTypes from 'prop-types'
      
 
 class Search extends Component{
+
+   static propTypes={
+     seatAlert: propTypes.func.isRequired,
+     Searchuser: propTypes.func.isRequired,
+   }
        state={
                text: ''
 }
@@ -30,9 +36,11 @@ render(){
         <input type='text' name='text' value={this.state.text} placeholder='Search users' onChange={this.onChange} />
         <input type='submit' value='Search user' className='btn btn-dark'/>
         </form>
+       {   this.props.showClear &&(
+          <button className='btn btn-dark btn-block' onClick={this.props.clearUsers}>Clear</button>)}
        </div>
-)
 
+       )
 
 }
 

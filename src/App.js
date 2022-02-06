@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     users: [],
     loading: false,
-    msg: null,
+    alert: null,
   };
   Searchuser= async text =>{
     this.setState({ loading: true });
@@ -22,7 +22,7 @@ class App extends Component {
     seatAlert=(msg,type)=>{
 
       this.setState({alert:{msg,type}})
-    setTimeOut(()=>this.setState({alert:null}),5000)
+    setTimeout(()=>this.setState({alert:null}),5000)
 
 }
 clearUsers=()=>{
@@ -36,7 +36,7 @@ clearUsers=()=>{
 
   
   render() {
-    const {users,loading,msg}=this.state
+    const {users,loading}=this.state
     return (
       <div>
         <Navbar title="Github FInder" />
@@ -45,6 +45,8 @@ clearUsers=()=>{
 
         <Search Searchuser={this.Searchuser}
         seatAlert={this.seatAlert}
+        showClear={users.length==0? false: true} 
+        clearUsers={this.clearUsers}
         />
           <Users users={users} loading={loading} />
         </div>
