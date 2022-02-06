@@ -9,9 +9,16 @@ class Search extends Component{
     this.setState({[e.target.name]: e.target.value})
 }
  onSubmit=e=>{
-          e.preventDefault();
-        this.props.Searchuser(this.state.text);
+  e.preventDefault();
+
+        if(this.state.text==''){
+
+         this.props.seatAlert('Please Enter a username','light')
+      }
+     else{
+                this.props.Searchuser(this.state.text);
           this.setState({text: ''})
+}
           
 }
          
