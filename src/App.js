@@ -17,12 +17,12 @@ class App extends Component {
     this.setState({ users: res.data, loading: false });
   }
   render() {
-    const {users,loading}=thi.state
+    const {users,loading}=this.state
     return (
       <div>
         <Navbar title="Github FInder" />
         <div className="container">
-          <Users users={users} loading={state.loading} />
+          <Users users={users} loading={loading} />
         </div>
       </div>
     );
