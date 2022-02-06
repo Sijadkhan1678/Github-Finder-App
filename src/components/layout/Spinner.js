@@ -1,10 +1,16 @@
-import React,{Fragment} from 'react';
-import spinner from './spinner.gif' 
+import React, { Fragment } from 'react';
 
-const Spinner=()=>{
-<Fragment>
-  <img src={spinner} alt="loading"/>
-  </Fragment>
-
-}
+const Spinner = () => {
+  return (
+    <Fragment>
+      <i style={iconSyle} className="fa fa-spinner" aria-hidden="true"></i>
+    </Fragment>
+  );
+};
+const iconSyle = {
+  display: 'block',
+  textAlign: 'center',
+  color: 'red',
+  fontSize: '5.9rem',
+};
 export default Spinner;

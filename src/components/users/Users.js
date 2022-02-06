@@ -4,18 +4,19 @@ import propTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
 
 class Users extends Component {
-  static propTypes = {
+   propTypes = {
     users: propTypes.array.isRequired,
     loading: propTypes.bool.isRequired,
   };
 
   render() {
-    if (this.props.loading) {
+    const {loading,users}=this.props
+    if (loading) {
       return <Spinner />;
     } else {
       return (
         <div style={userStyle}>
-          {this.props.users.map((user) => (
+          {users.map((user) => (
             <UserItem key={user.id} user={user} />
           ))}
         </div>
@@ -29,5 +30,6 @@ const userStyle = {
   gridTemplateColumns: 'repeat(3, 1fr)',
   gridGap: '1rem',
 };
+
 
 export default Users;
