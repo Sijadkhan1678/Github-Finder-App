@@ -18,6 +18,14 @@ class App extends Component {
     console.log(res.data);
     this.setState({ users: res.data, loading: false });
   }
+    seatAlert=(msg,type)=>{
+
+      this.setState({alert:{msg,type}})
+    setTimeOut(()=>this.setState({alert:null}),5000)
+
+}
+
+  
   render() {
     const {users,loading}=this.state
     return (

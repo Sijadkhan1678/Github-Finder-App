@@ -19,8 +19,8 @@ class Search extends Component{
 render(){
    return(
         <div>
-         <form onSubmit={this.onSubmit} className='form'>
-        <input type='text' name='text' value={this.state.text} onChnage={this.onChange} />
+         <form onSubmit={this.onSubmit} className='form' >
+        <input type='text' name='text' value={this.state.text} placeholder='Search users' onChnage={this.onChange} />
         <input type='submit' value='Search user' className='btn btn-dark'/>
         </form>
        </div>
