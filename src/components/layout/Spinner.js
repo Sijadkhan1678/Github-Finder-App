@@ -3,7 +3,8 @@ import React, { Fragment } from 'react';
 const Spinner = () => {
   return (
     <Fragment>
-      <i style={iconSyle} className="fa fa-spinner" aria-hidden="true"></i>
+      
+      <i style={iconSyle} className="fas fa-circle-notch"></i>
     </Fragment>
   );
 };

@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
 
 class Users extends Component {
-   propTypes = {
+ static  propTypes = {
     users: propTypes.array.isRequired,
     loading: propTypes.bool.isRequired,
   };

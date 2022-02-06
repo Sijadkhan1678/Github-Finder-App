@@ -11,16 +11,18 @@ class App extends Component {
   };
   async componentDidMount() {
     this.setState({ loading: true });
-    const res = await axios.get(`https://api.github.com/users?client_id=${proccess.env.REACT_APP_GITHUB-CLDEINT_ID}&client_secret=${proccess.env.REACT_APP_GITHUB-CLDEINT_SECRET}`);
+    const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLDEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLDEINT_SECRET}`);
+    
     console.log(res.data);
     this.setState({ users: res.data, loading: false });
   }
   render() {
+    const {users,loading}=thi.state
     return (
       <div>
         <Navbar title="Github FInder" />
         <div className="container">
-          <Users users={this.state.users} loading={this.state.loading} />
+          <Users users={users} loading={state.loading} />
         </div>
       </div>
     );
