@@ -32,7 +32,7 @@ class App extends Component {
     this.setState({ user: res.data, loading: false });
   };
 
-  seatAlert = (msg, type) => {
+  setAlert = (msg, type) => {
     this.setState({ alert: { msg, type } });
     setTimeout(() => this.setState({ alert: null }), 5000);
   };
@@ -70,10 +70,8 @@ class App extends Component {
               />
               <Route exact path="/aboute" omponent={About} />
              
-              <Route exact path="/users/:login"  render={(props) => (
-
-                  <User
-                    {...props}
+              <Route exact path="/user/:login"  render={(props) => (
+                 <User   {...props}
                     getUser={this.getUser}
                     user={user}
                     loading={loading}

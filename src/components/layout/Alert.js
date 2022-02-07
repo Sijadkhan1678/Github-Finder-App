@@ -1,17 +1,22 @@
 import React from 'react';
 import propTypes from 'prop-types';
+
 //this function is Execute when X button is clicked and will change the state of alert which is occure in the app.js
 //this.props.removeAlert()
  const Alert=({alert})=>{
 //alert propery  comes as an object from App.js.
 // following condition  to check alert object is null or not 
    return(   alert!=null &&(
-              <div className={`alert alert-${alert.type}`}>
-                 <i className="fas fa-info-circle"/>
+           <div className={` dis-fl alert alert-${alert.type}`}>
+              <div>
+                 <i className="fas fa-info-circle "/>
                  {alert.msg}
-           
-             <i className='fas fa-times'/>               
-           </div>))
+                  </div>
+           <div>
+
+             <i className='fas fa-times cursor'/>               
+           </div>
+           </div>  ))
 
 };
 

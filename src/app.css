@@ -21,6 +21,7 @@ body {
   color: #333;
 }
 
+
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -107,6 +108,22 @@ ul {
   align-items: center;
   text-align: center;
 }
+.dis-fl{
+  display: flex ;
+  align-items: center;
+  justify-content: space-between;
+  
+  
+}
+.cursor{
+  cursor: pointer;
+}
+.block{
+  display: block;
+  color: tomato;
+  cursor: pointer;
+}
+
 
 /* Cards */
 .card {

@@ -5,7 +5,7 @@ import propTypes from 'prop-types'
 class Search extends Component{
 
    static propTypes={
-     seatAlert: propTypes.func.isRequired,
+     setAlert: propTypes.func.isRequired,
      Searchuser: propTypes.func.isRequired,
    }
        state={
@@ -19,7 +19,7 @@ class Search extends Component{
 
         if(this.state.text==''){
 
-         this.props.seatAlert('Please Enter a username','light')
+         this.props.setAlert('Please Enter a username','light')
       }
      else{
                 this.props.Searchuser(this.state.text);
