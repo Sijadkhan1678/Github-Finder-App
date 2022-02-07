@@ -5,7 +5,7 @@ import Users from './components/users/Users';
 import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
 import About from './components/pages/About';
-import User from './components/users/User'
+import User from './components/users/User';
 import axios from 'axios';
 import './app.css';
 
@@ -39,7 +39,7 @@ class App extends Component {
   clearUsers = () => {
     this.setState({ users: [] });
   };
-  romoveAlert = () => {
+  removeAlert = () => {
     this.setState({ alert: null });
   };
 
@@ -50,7 +50,7 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <div className="container">
-            <Alert alert={this.state.alert} />
+            <Alert removeAlert={this.removeAlert} alert={this.state.alert} />
             <Switch>
               {/* Route for the home page */}
               <Route
@@ -68,10 +68,14 @@ class App extends Component {
                   </Fragment>
                 )}
               />
-              <Route exact path="/aboute" omponent={About} />
-             
-              <Route exact path="/user/:login"  render={(props) => (
-                 <User   {...props}
+              <Route exact path="/about" component={About} />
+
+              <Route
+                exact
+                path="/user/:login"
+                render={(props) => (
+                  <User
+                    {...props}
                     getUser={this.getUser}
                     user={user}
                     loading={loading}
