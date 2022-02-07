@@ -34,7 +34,7 @@ render(){
         <div>
          <form onSubmit={this.onSubmit} className='form' >
         <input type='text' name='text' value={this.state.text} placeholder='Search users' onChange={this.onChange} />
-        <input type='submit' value='Search user' className='btn btn-dark'/>
+        <input type='submit' value='Search user' className='btn btn-danger btn-block'/>
         </form>
        {   this.props.showClear &&(
           <button className='btn btn-dark btn-block' onClick={this.props.clearUsers}>Clear</button>)}

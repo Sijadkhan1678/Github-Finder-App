@@ -1,56 +1,79 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
-import Search from './components/users/Search'
-import Alert from './components/layout/Alert'
+import Search from './components/users/Search';
+import Alert from './components/layout/Alert';
+import About from './components/pages/About';
 import axios from 'axios';
 import './app.css';
 
 class App extends Component {
   state = {
     users: [],
+    user: {},
     loading: false,
     alert: null,
   };
-  Searchuser= async text =>{
+  Searchuser = async (text) => {
     this.setState({ loading: true });
-    const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLDEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLDEINT_SECRET}`);
-    
-    
+    const res = await axios.get(
+      `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLDEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLDEINT_SECRET}`
+    );
+
     this.setState({ users: res.data.items, loading: false });
-  }
-    seatAlert=(msg,type)=>{
+  };
+  getUser = async (username) => {
+    this.setState({ loading: true });
+    const res = await axios.get(
+      `https://api.github.com/users/${username}?&client_id=${process.env.REACT_APP_GITHUB_CLDEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLDEINT_SECRET}`
+    );
+    this.setState({ user: res.data, loading: false });
+  };
 
-      this.setState({alert:{msg,type}})
-    setTimeout(()=>this.setState({alert:null}),5000)
+  seatAlert = (msg, type) => {
+    this.setState({ alert: { msg, type } });
+    setTimeout(() => this.setState({ alert: null }), 5000);
+  };
+  clearUsers = () => {
+    this.setState({ users: [] });
+  };
+  romoveAlert = () => {
+    this.setState({ alert: null });
+  };
 
-}
-clearUsers=()=>{
-  this.setState({users:[]})
-  }
-  romoveAlert=()=>{
-    this.setState({alert:null})
-    }
-    
-  
-
-  
   render() {
-    const {users,loading}=this.state
+    const { users,user, loading } = this.state;
     return (
-      <div>
-        <Navbar title="Github FInder" />
-        <div className="container">
-          <Alert alert={this.state.alert} romoveAlert={this.removeAlert} />
-
-        <Search Searchuser={this.Searchuser}
-        seatAlert={this.seatAlert}
-        showClear={users.length==0? false: true} 
-        clearUsers={this.clearUsers}
-        />
-          <Users users={users} loading={loading} />
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container">
+            <Alert alert={this.state.alert} />
+            <Switch>
+              {/* Route for the home page */}
+              <Route
+                exact
+                path="/"
+                render={(props) => (
+                  <Fragment>
+                    <Search
+                      searchUsers={this.searchUsers}
+                      clearUsers={this.clearUsers}
+                      showClear={users.length > 0 ? true : false}
+                      setAlert={this.setAlert}
+                    />
+                    <Users loading={loading} users={users} />
+                  </Fragment>
+                )}
+              />
+              <Route exact path="/aboute" omponent={About} />
+              {/* <Route exact path='/users/:login' render={props=>(
+             <User {...props} getUser={this.getUser} user={user}  loading={loading} />)}/> */}
+            </Switch>
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }

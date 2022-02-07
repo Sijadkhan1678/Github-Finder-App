@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import propTypes from 'prop-types';
 
 
@@ -12,6 +13,10 @@ import propTypes from 'prop-types';
           
           {props.title}
         </h1>
+        <ul>
+          <li><Link to='/'>Home</Link> </li>
+          <li><Link to='/about'>About</Link></li>
+        </ul>
       </div>
     );
   
