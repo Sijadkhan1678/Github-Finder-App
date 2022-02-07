@@ -5,6 +5,7 @@ import Users from './components/users/Users';
 import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
 import About from './components/pages/About';
+import User from './components/users/User'
 import axios from 'axios';
 import './app.css';
 
@@ -26,7 +27,7 @@ class App extends Component {
   getUser = async (username) => {
     this.setState({ loading: true });
     const res = await axios.get(
-      `https://api.github.com/users/${username}?&client_id=${process.env.REACT_APP_GITHUB_CLDEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLDEINT_SECRET}`
+      `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLDEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLDEINT_SECRET}`
     );
     this.setState({ user: res.data, loading: false });
   };
@@ -43,7 +44,7 @@ class App extends Component {
   };
 
   render() {
-    const { users,user, loading } = this.state;
+    const { users, user, loading } = this.state;
     return (
       <Router>
         <div className="App">
@@ -58,7 +59,7 @@ class App extends Component {
                 render={(props) => (
                   <Fragment>
                     <Search
-                      searchUsers={this.searchUsers}
+                      Searchuser={this.Searchuser}
                       clearUsers={this.clearUsers}
                       showClear={users.length > 0 ? true : false}
                       setAlert={this.setAlert}
@@ -68,8 +69,17 @@ class App extends Component {
                 )}
               />
               <Route exact path="/aboute" omponent={About} />
-              {/* <Route exact path='/users/:login' render={props=>(
-             <User {...props} getUser={this.getUser} user={user}  loading={loading} />)}/> */}
+             
+              <Route exact path="/users/:login"  render={(props) => (
+
+                  <User
+                    {...props}
+                    getUser={this.getUser}
+                    user={user}
+                    loading={loading}
+                  />
+                )}
+              />
             </Switch>
           </div>
         </div>
