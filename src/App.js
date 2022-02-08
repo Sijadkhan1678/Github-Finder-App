@@ -32,12 +32,14 @@ class App extends Component {
     );
     this.setState({ user: res.data, loading: false });
   };
-  // getUserRepos= async (username)=>{
-  //   this.setState({loading: true})
-  //   const res= await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`)
-  //   this.setState({repos: res.data,loading: false})
-  //   console.log(res.data)
-  // }
+  getUserRepos = async (username) => {
+    this.setState({ loading: true });
+    const res = await axios.get(
+      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`
+    );
+    this.setState({ repos: res.data, loading: false });
+    console.log(res.data);
+  };
 
   setAlert = (msg, type) => {
     this.setState({ alert: { msg, type } });
@@ -51,7 +53,7 @@ class App extends Component {
   };
 
   render() {
-    const { users, user,repos,loading,alert } = this.state;
+    const { users, user, repos, loading, alert } = this.state;
     return (
       <Router>
         <div className="App">
