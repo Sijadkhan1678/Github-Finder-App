@@ -13,13 +13,14 @@ class App extends Component {
   state = {
     users: [],
     user: {},
+    repos: [],
     loading: false,
     alert: null,
   };
   Searchuser = async (text) => {
     this.setState({ loading: true });
     const res = await axios.get(
-      `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLDEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLDEINT_SECRET}`
+      `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`
     );
 
     this.setState({ users: res.data.items, loading: false });
@@ -27,16 +28,16 @@ class App extends Component {
   getUser = async (username) => {
     this.setState({ loading: true });
     const res = await axios.get(
-      `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLDEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLDEINT_SECRET}`
+      `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`
     );
     this.setState({ user: res.data, loading: false });
   };
-  getUserRepos=(username)=>{
-    this.setState({loading: true})
-    const res=axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLDEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLDEINT_SECRET}`)
-    this.setState({repos: res.data,loading: false})
-    console.log(res.data)
-  }
+  // getUserRepos= async (username)=>{
+  //   this.setState({loading: true})
+  //   const res= await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`)
+  //   this.setState({repos: res.data,loading: false})
+  //   console.log(res.data)
+  // }
 
   setAlert = (msg, type) => {
     this.setState({ alert: { msg, type } });
@@ -50,13 +51,13 @@ class App extends Component {
   };
 
   render() {
-    const { users, user, loading,repos } = this.state;
+    const { users, user,repos,loading,alert } = this.state;
     return (
       <Router>
         <div className="App">
           <Navbar />
           <div className="container">
-            <Alert removeAlert={this.removeAlert} alert={this.state.alert} />
+            <Alert removeAlert={this.removeAlert} alert={alert} />
             <Switch>
               {/* Route for the home page */}
               <Route
