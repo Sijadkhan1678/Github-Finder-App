@@ -5,12 +5,12 @@ import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 
-const User= ({user,getUser,loading,repos,getUserRepos})=>{
+const User= ({user,getUser,loading,repos,getUserRepos,match})=>{
     useEffect(() =>{
         getUser(match.params.login);
         getUserRepos(match.params.login);
         // eslint-disable-next-line
-    },{})
+    },[])
 
 
    

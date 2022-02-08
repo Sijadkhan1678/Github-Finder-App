@@ -1,4 +1,4 @@
-import React, {Fragment,useState,useEffect } from 'react';
+import React, {Fragment,useState} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
@@ -34,12 +34,12 @@ const App =()=>{
     const res = await axios.get(
       `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`
     );
-    this.setState({ user: res.data, loading: false });
+  
     setLoading(false)
     setUser(res.data)
   };
   const getUserRepos = async (username) => {
-    this.setState({ loading: true });
+    
     setLoading(true)
     const res = await axios.get(
       `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`
@@ -87,9 +87,7 @@ const  clearUsers = () => setUsers([]);
               <Route exact path="/about" component={About} />
 
               <Route
-                exact
-                path="/user/:login"
-                render={(props) => (
+                exact path="/user/:login" render={(props) => (
                   <User
                     {...props}
                     getUser={getUser}
