@@ -1,4 +1,5 @@
 import React from 'react'
+import propTyeps from 'prop-types'
  
 const RepoItem=({repo})=>{
 return(
@@ -12,5 +13,8 @@ return(
 </div>
 )
 
+}
+RepoItem.propTyeps={
+  rep: propTyeps.object.IsRequired,
 }
 export default RepoItem;

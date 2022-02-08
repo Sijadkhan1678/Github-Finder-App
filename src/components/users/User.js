@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import Spinner from '../layout/Spinner';
 import Repos from '../repos/Repos'
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 class User extends Component {
@@ -11,9 +11,11 @@ class User extends Component {
     }
 
     static propTypes = {
-        getUser: PropTypes.func.isRequired,
-        user: PropTypes.object.isRequired,
-        loading: PropTypes.bool.isRequired,
+        getUser: propTypes.func.isRequired,
+        user: propTypes.object.isRequired,
+        loading: propTypes.bool.isRequired,
+        repos: propTypes.array.isRequired,
+        getUserRepos: propTypes.func.isRequired,
     }
 
     render() {

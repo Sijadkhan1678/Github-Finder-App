@@ -38,7 +38,7 @@ class App extends Component {
       `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`
     );
     this.setState({ repos: res.data, loading: false });
-    console.log(res.data);
+    
   };
 
   setAlert = (msg, type) => {
