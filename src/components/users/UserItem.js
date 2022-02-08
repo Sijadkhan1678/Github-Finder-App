@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ const UserItem = ({user:{login,avatar_url,}}) => {
     <div className="text-center card">
       <img
         src={avatar_url}
-        alt=""
+        alt="Profile"
         className="round-img"
         style={{ width: 100 }}
       />
