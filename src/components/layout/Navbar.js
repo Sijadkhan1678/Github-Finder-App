@@ -24,7 +24,7 @@ import propTypes from 'prop-types';
 
  Navbar.defaultProps = {
   icon: 'fab fa-github',
-  title: 'Github FInder',
+  title: 'GithubFinder',
 };
  Navbar.propTypes = {
   icon: propTypes.string.isRequired,
