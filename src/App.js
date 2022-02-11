@@ -12,50 +12,13 @@ import './app.css';
 
 const App =()=>{
  
-  const [users,setUsers]=useState([])
-  const [user,setUser]=useState({})
-  const [repos,setRepos]=useState([])
-  const [loading,setLoading]=useState(false)
-  const [alert,showAlert]=useState(null)
-
-  const Searchuser = async (text) => {
-    
-    setLoading(true)
-    const res = await axios.get(
-      `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`
-    );
-
-    setLoading(false)
-    setUsers(res.data.items)
-  };
-  const getUser = async (username) => {
-    
-    setLoading(true)
-    const res = await axios.get(
-      `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`
-    );
   
-    setLoading(false)
-    setUser(res.data)
-  };
-  const getUserRepos = async (username) => {
-    
-    setLoading(true)
-    const res = await axios.get(
-      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLEINT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLEINT_SECRET}`
-    );
-    
-    setLoading(false)
-    setRepos(res.data)
-    
-  };
-
  const  setAlert = (msg, type) => {
     
     showAlert({msg,type})
     setTimeout(() => showAlert(null), 5000)
   };
-const  clearUsers = () => setUsers([]);
+
 
  const removeAlert = () =>  showAlert(null)
 
