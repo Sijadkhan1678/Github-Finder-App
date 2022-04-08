@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
+import React, { useContext,useEffect } from 'react';
 import UserItem from './UserItem';
 import propTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
-
-class Users extends Component {
- static  propTypes = {
-    users: propTypes.array.isRequired,
-    loading: propTypes.bool.isRequired,
-  };
-
-  render() {
-    const {loading,users}=this.props
+import GithubContext from '../../context/gitContext'
+const Users = () => {
+    const githubContext= useContext(GithubContext);
+    const {loading,users}=githubContext;
     if (loading) {
       return <Spinner />;
     } else {
@@ -22,8 +17,15 @@ class Users extends Component {
         </div>
       );
     }
-  }
+  
 }
+
+ Users.propTypes = {
+    users: propTypes.array.isRequired,
+    loading: propTypes.bool.isRequired,
+  };
+
+  
 
 const userStyle = {
   display: 'grid',
