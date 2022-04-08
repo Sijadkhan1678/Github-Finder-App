@@ -25,7 +25,7 @@ const Alert = () => {
 
 Alert.propTypes = {
   alert: propTypes.object.isRequired,
-  removeAlert: propTypes.func.isRequired,
+  clearAlert: propTypes.func.isRequired,
 };
 
 export default Alert;
