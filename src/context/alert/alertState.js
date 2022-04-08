@@ -28,3 +28,5 @@ return <AlertContext.Provider
 </AlertContext.Provider>
 
 }
+
+export default AlertState;
