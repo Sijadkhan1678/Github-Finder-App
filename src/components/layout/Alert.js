@@ -1,11 +1,12 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import propTypes from 'prop-types';
+import AlertContext from '../../context/alertContext';
 
-//this function is Execute when X button is clicked and will change the state of alert which is occure in the app.js
 
-const Alert = ({ alert, removeAlert }) => {
-  //alert propery  comes as an object from App.js.
-  // following condition  to check alert object is null or not
+
+const Alert = () => {
+  const alertContext = useContext(AlertContext)
+  const {alert,clearAlert} = alertContext 
   return (
     alert !== null && (
       <div className={` dis-fl alert alert-${alert.type}`}>
@@ -14,7 +15,8 @@ const Alert = ({ alert, removeAlert }) => {
           {alert.msg}
         </div>
         <div>
-          <i onClick={removeAlert} className="fas fa-times cursor" />
+        {/* when user clicked on x button which call clearAlert Function anf then alert is clear from screen*/}
+          <i onClick={clearAlert} className="fas fa-times cursor" />
         </div>
       </div>
     )
