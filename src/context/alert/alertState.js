@@ -3,7 +3,7 @@ import {SET_ALERT,REM0VE_ALERT} from '../types';
 import AlertContext from './alertContext';
 import AlertReducer from './alertReducer';
 
-const AlertState = () => {
+const AlertState = props => {
   
   const initialState = []
   
@@ -24,7 +24,7 @@ return <AlertContext.Provider
        }}
 >
 
-
+{props.children}
 </AlertContext.Provider>
 
 }
