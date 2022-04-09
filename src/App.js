@@ -7,6 +7,7 @@ import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
 import About from './components/pages/About';
 import User from './components/users/User';
+import Home from './components/pages/Home';
 import axios from 'axios';
 import './app.css';
 
@@ -26,7 +27,7 @@ const App =()=>{
               <Route
                 exact
                 path="/"
-                render={}
+                component={Home}
               />
               <Route exact path="/about" component={About} />
 
