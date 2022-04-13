@@ -1,12 +1,10 @@
-import React,{useContext} from 'react';
+import React, { useContext } from 'react';
 import propTypes from 'prop-types';
-import AlertContext from '../../context/alertContext';
-
-
+import AlertContext from '../../context/alert/alertContext';
 
 const Alert = () => {
-  const alertContext = useContext(AlertContext)
-  const {alert,clearAlert} = alertContext 
+  const alertContext = useContext(AlertContext);
+  const { alert, clearAlert } = alertContext;
   return (
     alert !== null && (
       <div className={` dis-fl alert alert-${alert.type}`}>
@@ -15,7 +13,7 @@ const Alert = () => {
           {alert.msg}
         </div>
         <div>
-        {/* when user clicked on x button which call clearAlert Function anf then alert is clear from screen*/}
+          {/* when user clicked on x button which call clearAlert Function anf then alert is clear from screen*/}
           <i onClick={clearAlert} className="fas fa-times cursor" />
         </div>
       </div>

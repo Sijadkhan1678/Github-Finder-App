@@ -1,46 +1,38 @@
-import React, {Fragment,useState} from 'react';
+import React, { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import GithubState from './context/github/GithubState';
-import AlerState from './context/alert/AlertState';
+import GithubState from './context/github/githubState';
+import AlerState from './context/alert/alertState';
 import Navbar from './components/layout/Navbar';
 import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
 import About from './components/pages/About';
 import User from './components/users/User';
 import Home from './components/pages/Home';
-import axios from 'axios';
+
 import './app.css';
 
-
-const App =()=>{
-   
-    return (
-      <GithubState>
+const App = () => {
+  return (
+    <GithubState>
       <AlerState>
-      <Router>
-        <div className="App">
-          <Navbar />
-          <div className="container">
-            <Alert  />
-            <Switch>
-              {/* Route for the home page */}
-              <Route
-                exact
-                path="/"
-                component={Home}
-              />
-              <Route exact path="/about" component={About} />
+        <Router>
+          <div className="App">
+            <Navbar />
+            <Search />
+            <div className="container">
+              <Alert />
+              <Switch>
+                {/* Route for the home page */}
+                <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
 
-              <Route
-                exact path="/user/:login" component={Uset}  />
-            </Switch>
+                <Route exact path="/user/:login" component={Uset} />
+              </Switch>
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
       </AlerState>
-      </GithubState>
-    
-    );
-  
-}
+    </GithubState>
+  );
+};
 export default App;
