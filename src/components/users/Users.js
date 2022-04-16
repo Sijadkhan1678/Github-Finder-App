@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import UserItem from './UserItem';
 import propTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
