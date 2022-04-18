@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import propTypes from 'prop-types';
 import GithubContext from '../../context/github/githubContext';
 import AlertContext from '../../context/alert/alertContext';
 
@@ -7,9 +6,9 @@ const Search = () => {
   const alertContext = useContext(AlertContext);
   const githubContext = useContext(GithubContext);
   const { searchUsers, users, clearUsers } = githubContext;
-  const { setAlert } = alertContext;
+  const { setAlert, clearAlert, alert } = alertContext;
   const [text, setText] = useState('');
-
+  console.log(alert);
   const onChange = (e) => {
     setText(e.target.value);
   };
@@ -20,6 +19,7 @@ const Search = () => {
       setAlert('Please Enter a username', 'light');
     } else {
       searchUsers(text);
+      clearAlert();
       setText('');
     }
   };
