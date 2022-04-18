@@ -16,7 +16,7 @@ const Search = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (text == '') {
+    if (text === '') {
       setAlert('Please Enter a username', 'light');
     } else {
       searchUsers(text);
@@ -47,12 +47,6 @@ const Search = () => {
       )}
     </div>
   );
-};
-Search.propTypes = {
-  setAlert: propTypes.func.isRequired,
-  Searchuser: propTypes.func.isRequired,
-  ClearUsers: propTypes.func.isRequired,
-  users: propTypes.array.isRequired,
 };
 
 export default Search;

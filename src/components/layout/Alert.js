@@ -6,8 +6,8 @@ const Alert = () => {
   const alertContext = useContext(AlertContext);
   const { alert, clearAlert } = alertContext;
   return (
-    alert.length !== 0 && (
-      <div className={` dis-fl alert alert-${alert.type}`}>
+    alert !==null && (
+      <div className={` alert alert alert-${alert.type}`}>
         <div>
           <i className="fas fa-info-circle " />
           {alert.msg}
