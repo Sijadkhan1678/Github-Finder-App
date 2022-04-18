@@ -7,22 +7,22 @@ const AlertState = (props) => {
   const initialState = [];
 
   const [state, dispatch] = useReducer(AlertReducer, initialState);
-  const setAlert = (msg, timeOut = 5000) => {
+  const setAlert = (msg, Timeout = 5000) => {
     dispatch({
       type: SET_ALERT,
       payload: msg,
     });
-    setTimeout(() => dispatch({ type: REM0VE_ALERT }), timeOut);
+    setTimeout(() => dispatch({ type: REM0VE_ALERT }), Timeout);
   };
 
-  const clearAlert = () => dispatch({ type: REMOVE_ALERT });
+//  const clearAlert = () => dispatch({ type: REMOVE_ALERT });
 
   return (
     <AlertContext.Provider
       value={{
         alert: state,
         setAlert,
-        clearAlert,
+       // clearAlert,
       }}
     >
       {props.children}
