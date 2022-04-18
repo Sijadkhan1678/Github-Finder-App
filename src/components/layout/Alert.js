@@ -22,7 +22,7 @@ const Alert = () => {
 };
 
 Alert.propTypes = {
-  alert: propTypes.object.isRequired,
+  alert: propTypes.array.isRequired,
   clearAlert: propTypes.func.isRequired,
 };
 
