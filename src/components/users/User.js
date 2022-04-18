@@ -92,12 +92,4 @@ const User = ({ match }) => {
   );
 };
 
-User.propTypes = {
-  getUser: propTypes.func.isRequired,
-
-  loading: propTypes.bool.isRequired,
-  repos: propTypes.array.isRequired,
-  getUserRepos: propTypes.func.isRequired,
-};
-
 export default User;
